@@ -1,0 +1,97 @@
+@extends('admin.layout.layout')
+@section('konten')
+
+
+
+
+  <div class="container">
+
+    <div class="card o-hidden border-0 shadow-lg my-5">
+      <div class="card-body p-0">
+        <!-- Nested Row within Card Body -->
+        <div class="row">
+          <div class="col-lg-7">
+            <div class="p-5">
+              <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Update Emloyee</h1>
+              </div>
+
+
+				@if ($errors->any())
+				    <div class="alert alert-danger">
+				        <ul>
+				            @foreach ($errors->all() as $error)
+				                <li>{{ $error }}</li>
+				            @endforeach
+				        </ul>
+
+				    </div>
+
+
+				@endif
+
+
+
+
+				     <form role="form" method="post" enctype="multipart/form-data" action="{{$edit -> id}}">
+          						
+
+          						
+          						{!! csrf_field() !!}
+
+
+					  <div class="form-group">
+					    <label>Nama </label>
+					    <input type="text" class="form-control" name="nama" placeholder="" value="{{$edit -> nama}}">
+					  </div>
+
+
+					  <div class="form-group">
+					    <label >Email Companies</label>
+					    <input type="email" class="form-control" name="email" placeholder="" value="{{$edit -> email}}">
+					  </div>
+
+
+					  <div class="form-group">
+					    <label >Website Companies</label>
+					    <input type="text" class="form-control" name="website" placeholder="" value="{{$edit -> website}}">
+					  </div>
+
+
+					  <div class="form-group">
+					    <label >Logo Waji DI isi kembali</label>
+					    <br>
+					    <img src="{{ asset('storage/app/company/' . $edit->logo) }}" alt="" width="50" height="50">
+					    <br>
+				
+              			<input type="file" name="logo">
+		
+					  </div>
+
+
+            			 <div class="box-footer">
+            				<button type="submit" class="btn btn-primary">Update</button>
+          				</div>
+
+
+					</form>
+
+
+              <hr>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+@endsection
